@@ -3,7 +3,7 @@ require 'Anagram'
 
 describe('#Anagram')
   it('checks that input is a real word') do
-     anagram.word?()
-  expect(anagram.word?()).to(eq(true))
+     anagram.is_word?()
+  expect(anagram.is_word?()).to(eq(true))
  end
 end
