@@ -6,6 +6,10 @@ describe('#Anagram') do
     anagram = Anagram.new("Dog", "God")
   expect(anagram.is_word).to(eq("Word one has at least one vowel"))
   end
+  it("should not be case sensitive") do
+    anagram = Anagram.new("God", "god")
+    expect(anagram.word2_is_anagram).to(eq("You have an anagram!"))
+  end
   it("checks that word one and word two aren't the same word") do
     anagram = Anagram.new("God", "God")
   expect(anagram.word2_is_anagram).to(eq("that's the same word!"))
@@ -14,12 +18,12 @@ describe('#Anagram') do
     anagram = Anagram.new("Gods", "Dog")
   expect(anagram.word2_is_anagram).to(eq("That's not an anagram"))
   end
-  it("should not be case sensitive") do
-    anagram = Anagram.new("God", "god")
-  expect(anagram.word2_is_anagram).to(eq("You have an anagram!"))
-  end
   it('should identify an antigram') do
     anagram = Anagram.new("God", "run")
   expect(anagram.antigram).to(eq("That's an antigram!"))
+  end
+  it('should handle multi-word anagrams') do
+    anagram = Anagram.new("fat scar", 'fast car')
+  expect(anagram.word2_is_anagram).to(eq("You have an anagram!"))
   end
 end
