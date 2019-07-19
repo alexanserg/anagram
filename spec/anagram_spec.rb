@@ -14,4 +14,8 @@ describe('#Anagram') do
     anagram = Anagram.new("Gods", "Dog")
   expect(anagram.word2_is_anagram).to(eq("That's not an anagram"))
   end
+  it("should not be case sensitive") do
+    anagram = Anagram.new("God", "god")
+  expect(anagram.word2_is_anagram).to(eq("You have an anagram!"))
+  end
 end
