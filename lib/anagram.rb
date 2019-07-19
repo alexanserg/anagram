@@ -1,7 +1,6 @@
 require 'pry'
 
 class Anagram
-  attr_accessor(:word1, :array1, :word2, :array2)
   def initialize(word1, word2)
     @word1 = word1
     @array1 = word1.downcase.split('')
