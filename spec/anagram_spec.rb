@@ -18,4 +18,8 @@ describe('#Anagram') do
     anagram = Anagram.new("God", "god")
   expect(anagram.word2_is_anagram).to(eq("You have an anagram!"))
   end
+  it('should identify an antigram') do
+    anagram = Anagram.new("God", "run")
+  expect(anagram.antigram).to(eq("That's an antigram!"))
+  end
 end

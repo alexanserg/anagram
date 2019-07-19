@@ -29,4 +29,11 @@ class Anagram
       end
     end
   end
+  def antigram
+    if @array1 & @array2 == []
+      return "That's an antigram!"
+    else
+      return "That's not an antigram"
+    end
+  end
 end
