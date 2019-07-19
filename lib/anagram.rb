@@ -9,10 +9,10 @@ class Anagram
     @vowels = ['a', 'e', 'i', 'o', 'u', 'y']
   end
   def is_word
-    @array1.each do |letter|
-      if @vowels.include?(letter)
-        return "Word one has at least one vowel"
-      end
+    if @vowels & @array1 == []
+        return "Words must contain at least one vowel"
+    else
+      return "Word one has at least one vowel"
     end
   end
   def word2_is_anagram
