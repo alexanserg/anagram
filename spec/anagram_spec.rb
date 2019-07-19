@@ -1,9 +1,11 @@
-require 'rspec'
-require 'Anagram'
+require ('rspec')
+require ('Anagram')
 
-describe('#Anagram')
-  it('checks that input is a real word') do
-     anagram.is_word?()
-  expect(anagram.is_word?()).to(eq(true))
+describe('#Anagram') do
+anagram = Anagram.new("Dog", "God")
+  it('checks that word1 contains at least one vowel') do
+     anagram.is_word1?
+  expect(anagram.is_word1?).to(eq("Word one has at least one vowel"))
  end
+
 end
