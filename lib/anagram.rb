@@ -20,12 +20,10 @@ class Anagram
       return "that's the same word!"
     elsif @array1.length != @array2.length
       return "That's not an anagram"
+    elsif (@array1 & @array2).length == @array1.length
+      return "You have an anagram!"
     else
-      @array2.all? do |letter|
-        if @array1.include?(letter)
-          return "You have an anagram!"
-        end
-      end
+      return "that is not an anagram"
     end
   end
   def antigram
@@ -34,5 +32,8 @@ class Anagram
     else
       return "That's not an antigram"
     end
+  end
+  def test
+    (@array1 & @array2).length
   end
 end
