@@ -3,9 +3,13 @@ require 'pry'
 class Anagram
   def initialize(word1, word2)
     @word1 = word1
-    @array1 = word1.downcase.split('')
+    @first_array1 = word1.downcase.split(/[^a-zA-Z]/)
+    @first_word1 = @first_array1.join('')
+    @array1 = @first_word1.split('')
     @word2 = word2
-    @array2 = word2.downcase.split('')
+    @first_array2 = word2.downcase.split(/[^a-zA-Z]/)
+    @first_word2 = @first_array2.join('')
+    @array2 = @first_word2.split('')
     @vowels = ['a', 'e', 'i', 'o', 'u', 'y']
   end
   def is_word
@@ -16,14 +20,22 @@ class Anagram
     end
   end
   def word2_is_anagram
-    if @word1 == @word2
+    @array2.each do |letter|
+      if @array1.include?(letter) == false
+        return "That's not an anagram"
+      end
+    end
+    @array1.each do |letter|
+      if @array2.include?(letter) == false
+        return "That's not an anagram"
+      end
+    end
+    if @first_word1 == @first_word2
       return "that's the same word!"
     elsif @array1.length != @array2.length
       return "That's not an anagram"
-    elsif (@array1 & @array2).length == @array1.length
-      return "You have an anagram!"
     else
-      return "that is not an anagram"
+        return "You have an anagram!"
     end
   end
   def antigram
@@ -32,8 +44,5 @@ class Anagram
     else
       return "That's not an antigram"
     end
-  end
-  def test
-    (@array1 & @array2).length
   end
 end

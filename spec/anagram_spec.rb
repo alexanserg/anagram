@@ -6,6 +6,10 @@ describe('#Anagram') do
     anagram = Anagram.new("Dog", "God")
   expect(anagram.is_word).to(eq("Word one has at least one vowel"))
   end
+  it("should ignore punctuation") do
+    anagram = Anagram.new("Dog's", "Dogs")
+  expect(anagram.word2_is_anagram).to(eq("that's the same word!"))
+  end
   it('checks that word1 contains at least one vowel') do
     anagram = Anagram.new("Dg", "Gd")
   expect(anagram.is_word).to(eq("Words must contain at least one vowel"))
